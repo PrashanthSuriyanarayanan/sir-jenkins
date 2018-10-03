@@ -32,7 +32,7 @@ pipeline {
       parallel {
         stage ('Deploy to Staging') {
           steps {
-            bat "winscp -i C:/Users/psuriya/Downloads/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+            bat "winscp -i C:/Users/psuriya/Downloads/tomcat-demo.ppk **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
           }
         }
 
