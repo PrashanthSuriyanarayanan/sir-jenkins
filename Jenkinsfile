@@ -32,7 +32,7 @@ pipeline {
       parallel {
         stage ('Deploy to Staging') {
           steps {
-            bat 'winscp /command "open sftp://ec2-user@ec2-18-222-138-93.us-east-2.compute.amazonaws.com -privatekey=C:/Users/psuriya/Downloads/tomcat-demo.ppk" "put **/target/*.war /var/lib/tomcat7/webapps" "exit"'
+            bat 'winscp /command "open sftp://ec2-user@ec2-18-222-138-93.us-east-2.compute.amazonaws.com -privatekey=C:/Users/psuriya/Downloads/tomcat-demo.ppk -hostkey=""ssh-rsa 2048 1egKOMF4OYkNSrTvnSHzD0QyiMJSoKgijOxz/w/Brfo=""" "put **/target/*.war /var/lib/tomcat7/webapps/" "exit"'
           }
         }
 
