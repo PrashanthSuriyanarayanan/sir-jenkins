@@ -32,7 +32,7 @@ pipeline {
       parallel {
         stage ('Deploy to Staging') {
           steps {
-            bat 'winscp /command "open sftp://ec2-user@ec2-18-222-138-93.us-east-2.compute.amazonaws.com -privatekey=C:/Users/psuriya/Downloads/tomcat-demo.ppk -hostkey=*" "put ""C:\Program Files (x86)\Jenkins\jobs\FullyAutomatedPipeline\builds\${BUILD_NUMBER}\archive\webapp\target*.war"" /var/lib/tomcat7/webapps/" "exit"'
+            bat 'winscp /command "open sftp://ec2-user@ec2-18-222-138-93.us-east-2.compute.amazonaws.com -privatekey=C:/Users/psuriya/Downloads/tomcat-demo.ppk -hostkey=*" "put ""C:/Program Files (x86)/Jenkins/jobs/FullyAutomatedPipeline/builds/${BUILD_NUMBER}/archive/webapp/target/*.war"" /var/lib/tomcat7/webapps/" "exit"'
           }
         }
 
