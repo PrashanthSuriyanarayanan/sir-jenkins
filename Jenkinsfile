@@ -35,14 +35,14 @@ pipeline {
       parallel {
         stage ('Deploy to Staging') {
           steps {
-            bat 'winscp /command "open sftp://ec2-user@%params.tomcat_dev% -privatekey=%params.privateKey% -hostkey=*" "put %params.source% %params.destinationPath%" "exit"'
+            bat 'winscp /command "open sftp://ec2-user@%tomcat_dev% -privatekey=%privateKey% -hostkey=*" "put %source% %destinationPath%" "exit"'
             echo "y"
           }
         }
 
         stage ("Deploy to Production") {
           steps {
-            bat 'winscp /command "open sftp://ec2-user@%params.tomcat_prod% -privatekey=%params.privateKey% -hostkey=*" "put %params.source% %params.destinationPath%" "exit"'
+            bat 'winscp /command "open sftp://ec2-user@%tomcat_prod% -privatekey=%privateKey% -hostkey=*" "put %source% %destinationPath%" "exit"'
           }
         }
       }
