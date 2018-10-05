@@ -34,14 +34,13 @@ pipeline {
       parallel {
         stage ('Deploy to Staging') {
           steps {
-            bat 'winscp /command "open sftp://ec2-user@%tomcat_dev% -privatekey=%privateKey% -hostkey=*" "put ""C:/Program Files (x86)/Jenkins/jobs/FullyAutomatedPipeline/builds/%BUILD_NUMBER%/archive/webapp/target/*.war"" %destinationPath%" "exit"'
-            echo "y"
+            bat 'winscp /command "open sftp://ec2-user@%tomcat_dev% -privatekey=%privateKey% -hostkey=*" "put ""C:\Program Files (x86)\Jenkins\jobs\FullyAutomatedPipeline\builds\%BUILD_NUMBER%\archive/webapp\target\*.war"" %destinationPath%" "exit"'
           }
         }
 
         stage ("Deploy to Production") {
           steps {
-            bat 'winscp /command "open sftp://ec2-user@%tomcat_prod% -privatekey=%privateKey% -hostkey=*" "put ""C:/Program Files (x86)/Jenkins/jobs/FullyAutomatedPipeline/builds/%BUILD_NUMBER%/archive/webapp/target/*.war"" %destinationPath%" "exit"'
+            bat 'winscp /command "open sftp://ec2-user@%tomcat_prod% -privatekey=%privateKey% -hostkey=*" "put ""C:\Program Files (x86)\Jenkins\jobs\FullyAutomatedPipeline\builds\%BUILD_NUMBER%\archive/webapp\target\*.war"" %destinationPath%" "exit"'
           }
         }
       }
