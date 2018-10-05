@@ -1,0 +1,12 @@
+pipeline {
+  agent any
+
+  stages {
+    stage("Build Project") {
+      steps {
+        bat "mvn clean package"
+        bat "docker build . -t mvn-webapp:${env.BUILD_ID}"
+      }
+    }
+  }
+}
